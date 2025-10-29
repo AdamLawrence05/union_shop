@@ -48,7 +48,7 @@ You have three options for your development environment:
 - Install [Chocolatey package manager](https://chocolatey.org/install)
 - Run in PowerShell (as Administrator):
 
-  ```powershell
+  ```bash
   choco install git vscode flutter -y
   ```
 
@@ -93,7 +93,7 @@ Open your terminal or command prompt and run:
 
 #### On Windows (PowerShell/Command Prompt)
 
-```powershell
+```bash
 git clone https://github.com/YOUR-USERNAME/union_shop.git
 cd union_shop
 ```
@@ -117,7 +117,7 @@ Navigate to the project directory and install the required Flutter packages:
 
 #### On Windows
 
-```powershell
+```bash
 flutter pub get
 ```
 
@@ -137,7 +137,7 @@ This application is primarily designed to run on **web** and should be viewed in
 
 **On Windows:**
 
-```powershell
+```bash
 flutter run -d chrome
 ```
 
