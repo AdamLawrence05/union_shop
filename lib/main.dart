@@ -97,6 +97,54 @@ class HomeScreen extends StatelessWidget {
                           ),
                           const SizedBox(width: 8),
                           TextButton(
+                            onPressed: () {
+                              navigateToProduct(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('Home'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              navigateToProduct(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('Shops'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              navigateToProduct(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('The Print Shack'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              navigateToProduct(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('SALE!'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
                             onPressed: () => Navigator.pushNamed(context, '/about'),
                             style: TextButton.styleFrom(
                               foregroundColor: const Color(0xFF4d2963),
