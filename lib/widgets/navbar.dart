@@ -109,17 +109,16 @@ class Navbar extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            if (!isMobile) ...[
-                              _iconButton(Icons.search, placeholderCallbackForButtons),
-                              _iconButton(Icons.person_outline, placeholderCallbackForButtons),
-                              _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons),
-                            ],
-                            IconButton(
-                              icon: Icon(Icons.menu, size: isMobile ? 28 : 18, color: Colors.grey),
-                              padding: const EdgeInsets.all(8),
-                              constraints: BoxConstraints(minWidth: isMobile ? 48 : 32, minHeight: isMobile ? 48 : 32),
-                              onPressed: isMobile ? () => _openMobileMenu(context) : placeholderCallbackForButtons,
-                            ),
+                            _iconButton(Icons.search, placeholderCallbackForButtons, isMobile),
+                            _iconButton(Icons.person_outline, placeholderCallbackForButtons, isMobile),
+                            _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons, isMobile),
+                            if (isMobile)
+                              IconButton(
+                                icon: const Icon(Icons.menu, size: 28, color: Colors.grey),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                                onPressed: () => _openMobileMenu(context),
+                              ),
                           ],
                         ),
                       ),
@@ -146,11 +145,11 @@ class Navbar extends StatelessWidget {
     );
   }
 
-  Widget _iconButton(IconData icon, VoidCallback onPressed) {
+  Widget _iconButton(IconData icon, VoidCallback onPressed, [bool isMobile = false]) {
     return IconButton(
-      icon: Icon(icon, size: 18, color: Colors.grey),
+      icon: Icon(icon, size: isMobile ? 24 : 18, color: Colors.grey),
       padding: const EdgeInsets.all(8),
-      constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+      constraints: BoxConstraints(minWidth: isMobile ? 40 : 32, minHeight: isMobile ? 40 : 32),
       onPressed: onPressed,
     );
   }
