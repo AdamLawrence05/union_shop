@@ -9,6 +9,41 @@ class Navbar extends StatelessWidget {
 
   void placeholderCallbackForButtons() {}
 
+  void _openMobileMenu(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Container(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _mobileNavItem(context, 'Home', () {
+              Navigator.pop(context);
+              navigateToHome(context);
+            }),
+            _mobileNavItem(context, 'Shops', () => Navigator.pop(context)),
+            _mobileNavItem(context, 'The Print Shack', () => Navigator.pop(context)),
+            _mobileNavItem(context, 'SALE!', () => Navigator.pop(context)),
+            _mobileNavItem(context, 'About us', () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/about');
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _mobileNavItem(BuildContext context, String text, VoidCallback onTap) {
+    return ListTile(
+      title: Text(
+        text,
+        style: const TextStyle(color: Color(0xFF4d2963)),
+      ),
+      onTap: onTap,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,53 +64,66 @@ class Navbar extends StatelessWidget {
           ),
           // Main header
           Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: () => navigateToHome(context),
-                    child: Image.network(
-                      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                      height: 18,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          color: Colors.grey[300],
-                          width: 18,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final isMobile = constraints.maxWidth < 768;
+
+                return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => navigateToHome(context),
+                        child: Image.network(
+                          'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                           height: 18,
-                          child: const Center(
-                            child: Icon(Icons.image_not_supported, color: Colors.grey),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  _navButton(context, 'Home', () => navigateToHome(context)),
-                  const SizedBox(width: 8),
-                  _navButton(context, 'Shops', placeholderCallbackForButtons),
-                  const SizedBox(width: 8),
-                  _navButton(context, 'The Print Shack', placeholderCallbackForButtons),
-                  const SizedBox(width: 8),
-                  _navButton(context, 'SALE!', placeholderCallbackForButtons),
-                  const SizedBox(width: 8),
-                  _navButton(context, 'About us', () => Navigator.pushNamed(context, '/about')),
-                  const Spacer(),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 600),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _iconButton(Icons.search, placeholderCallbackForButtons),
-                        _iconButton(Icons.person_outline, placeholderCallbackForButtons),
-                        _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons),
-                        _iconButton(Icons.menu, placeholderCallbackForButtons),
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey[300],
+                              width: 18,
+                              height: 18,
+                              child: const Center(
+                                child: Icon(Icons.image_not_supported, color: Colors.grey),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      if (!isMobile) ...[
+                        const SizedBox(width: 8),
+                        _navButton(context, 'Home', () => navigateToHome(context)),
+                        const SizedBox(width: 8),
+                        _navButton(context, 'Shops', placeholderCallbackForButtons),
+                        const SizedBox(width: 8),
+                        _navButton(context, 'The Print Shack', placeholderCallbackForButtons),
+                        const SizedBox(width: 8),
+                        _navButton(context, 'SALE!', placeholderCallbackForButtons),
+                        const SizedBox(width: 8),
+                        _navButton(context, 'About us', () => Navigator.pushNamed(context, '/about')),
                       ],
-                    ),
+                      const Spacer(),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 600),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (!isMobile) ...[
+                              _iconButton(Icons.search, placeholderCallbackForButtons),
+                              _iconButton(Icons.person_outline, placeholderCallbackForButtons),
+                              _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons),
+                            ],
+                            _iconButton(
+                              Icons.menu,
+                              isMobile ? () => _openMobileMenu(context) : placeholderCallbackForButtons,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],
