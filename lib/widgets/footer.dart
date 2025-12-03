@@ -9,19 +9,33 @@ class Footer extends StatelessWidget {
       width: double.infinity,
       color: Colors.grey[50],
       padding: const EdgeInsets.all(24),
-      child: const Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _FooterHeading('(Term Time)'),
-          SizedBox(height: 4),
-          _FooterText('Monday - Friday 10am - 4pm'),
-          SizedBox(height: 12),
-          _FooterHeading('(Outside of Term Time / Consolidation Weeks)'),
-          SizedBox(height: 4),
-          _FooterText('Monday - Friday 10am - 3pm'),
-          SizedBox(height: 12),
-          _FooterText('Purchase online 24/7'),
+          const _FooterHeading('(Term Time)'),
+          const SizedBox(height: 4),
+          const _FooterText('Monday - Friday 10am - 4pm'),
+          const SizedBox(height: 12),
+          const _FooterHeading('(Outside of Term Time / Consolidation Weeks)'),
+          const SizedBox(height: 4),
+          const _FooterText('Monday - Friday 10am - 3pm'),
+          const SizedBox(height: 12),
+          const _FooterText('Purchase online 24/7'),
+          const SizedBox(height: 16),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+            },
+            child: const Text(
+              'upsu-store',
+              style: TextStyle(
+                color: Color(0xFF4d2963),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
     );
