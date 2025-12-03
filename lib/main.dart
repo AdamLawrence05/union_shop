@@ -235,7 +235,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/HeroShirt.png',
+                            'assets/images/EssentialHoodie.png',
                           ),
                           fit: BoxFit.cover,
                         ),
@@ -304,7 +304,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
-                      'PRODUCTS SECTION',
+                      'ESSSENTIAL RANGE - OVER 20% OFF!',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.black,
@@ -321,22 +321,22 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 48,
                       children: const [
                         ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
+                          title: 'Essential T-Shirt',
+                          price: 'Was £10.00, Now £8.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/EssentialShirt.png',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 2',
-                          price: '£15.00',
+                          title: 'Essential Hoodie',
+                          price: 'Was £20.00, Now £15.99',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/EssentialHoodie.png',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 3',
-                          price: '£20.00',
+                          title: 'SIGNATURE CDs',
+                          price: 'Was £2.00, Now £1.50',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/CDs.png',
                         ),
                         ProductCard(
                           title: 'Placeholder Product 4',
