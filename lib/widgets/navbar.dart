@@ -46,29 +46,30 @@ class Navbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      color: Colors.white,
-      child: Column(
-        children: [
-          // Top banner
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            color: const Color(0xFF4d2963),
-            child: const Text(
-              'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 16),
-            ),
-          ),
-          // Main header
-          Expanded(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                final isMobile = constraints.maxWidth < 768;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = constraints.maxWidth < 768;
+        final navbarHeight = isMobile ? 130.0 : 100.0;
 
-                return Container(
+        return Container(
+          height: navbarHeight,
+          color: Colors.white,
+          child: Column(
+            children: [
+              // Top banner
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                color: const Color(0xFF4d2963),
+                child: Text(
+                  'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: isMobile ? 12 : 16),
+                ),
+              ),
+              // Main header
+              Expanded(
+                child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: [
@@ -76,13 +77,13 @@ class Navbar extends StatelessWidget {
                         onTap: () => navigateToHome(context),
                         child: Image.network(
                           'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                          height: 18,
+                          height: isMobile ? 32 : 18,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
                               color: Colors.grey[300],
-                              width: 18,
-                              height: 18,
+                              width: isMobile ? 32 : 18,
+                              height: isMobile ? 32 : 18,
                               child: const Center(
                                 child: Icon(Icons.image_not_supported, color: Colors.grey),
                               ),
@@ -108,26 +109,27 @@ class Navbar extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            if (!isMobile) ...[
-                              _iconButton(Icons.search, placeholderCallbackForButtons),
-                              _iconButton(Icons.person_outline, placeholderCallbackForButtons),
-                              _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons),
-                            ],
-                            _iconButton(
-                              Icons.menu,
-                              isMobile ? () => _openMobileMenu(context) : placeholderCallbackForButtons,
-                            ),
+                            _iconButton(Icons.search, placeholderCallbackForButtons, isMobile),
+                            _iconButton(Icons.person_outline, placeholderCallbackForButtons, isMobile),
+                            _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons, isMobile),
+                            if (isMobile)
+                              IconButton(
+                                icon: Icon(Icons.menu, size: 28, color: Colors.grey),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                                onPressed: () => _openMobileMenu(context),
+                              ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                );
-              },
-            ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -143,11 +145,11 @@ class Navbar extends StatelessWidget {
     );
   }
 
-  Widget _iconButton(IconData icon, VoidCallback onPressed) {
+  Widget _iconButton(IconData icon, VoidCallback onPressed, [bool isMobile = false]) {
     return IconButton(
-      icon: Icon(icon, size: 18, color: Colors.grey),
+      icon: Icon(icon, size: isMobile ? 24 : 18, color: Colors.grey),
       padding: const EdgeInsets.all(8),
-      constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+      constraints: BoxConstraints(minWidth: isMobile ? 40 : 32, minHeight: isMobile ? 40 : 32),
       onPressed: onPressed,
     );
   }
