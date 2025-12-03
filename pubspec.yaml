@@ -20,4 +20,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/HeroShirt.png
+    - assets/images/EssentialShirt.png
+    - assets/images/CDs.png
+    - assets/images/EssentialHoodie.png
