@@ -36,8 +36,8 @@ class AboutUsPage extends StatelessWidget {
                     'Happy shopping! The Union Shop & Reception Team',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 16,
-                      height: 1.8,
+                      fontSize: 18,
+                      height: 2,
                     ),
                   ),
                 ],
