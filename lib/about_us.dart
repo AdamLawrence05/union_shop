@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
 
@@ -10,9 +11,8 @@ class AboutUsPage extends StatelessWidget {
   void placeholderCallbackForButtons() {
     // This is the event handler for buttons that don't work yet
   }
-
-  @override
-  Widget build(BuildContext context) {
+    @override
+    Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -29,7 +29,7 @@ class AboutUsPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
+                      'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
@@ -60,6 +60,64 @@ class AboutUsPage extends StatelessWidget {
                                 );
                               },
                             ),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              navigateToHome(context);
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('Home'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              placeholderCallbackForButtons();
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('Shops'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              placeholderCallbackForButtons();
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('The Print Shack'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              placeholderCallbackForButtons();
+                            },
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('SALE!'),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () => Navigator.pushNamed(context, '/about'),
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              visualDensity: VisualDensity.compact,
+                            ),
+                            child: const Text('About us'),
                           ),
                           const Spacer(),
                           ConstrainedBox(
@@ -133,13 +191,13 @@ class AboutUsPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               child: const Text(
-                'This is a placeholder for the about us page content.',
+                'About Us Content Goes Here',
                 style: TextStyle(fontSize: 18),
               ),
             ),
           ],
-        ),      
+        ),
       ),
     );
   }
-}
+} 
