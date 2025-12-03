@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
-import 'package:union_shop/about_us.dart'; // added import
+import 'package:union_shop/about_us.dart';
+
 
 void main() {
   runApp(const UnionShopApp());
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(width: 8),
                           TextButton(
                             onPressed: () {
-                              navigateToProduct(context);
+                              navigateToHome(context);
                             },
                             style: TextButton.styleFrom(
                               foregroundColor: const Color(0xFF4d2963),
@@ -233,8 +234,8 @@ class HomeScreen extends StatelessWidget {
                     child: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(
-                            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+                          image: AssetImage(
+                            'assets/images/HeroShirt.png',
                           ),
                           fit: BoxFit.cover,
                         ),
