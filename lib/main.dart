@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(width: 8),
                           TextButton(
                             onPressed: () {
-                              navigateToProduct(context);
+                              placeholderCallbackForButtons();
                             },
                             style: TextButton.styleFrom(
                               foregroundColor: const Color(0xFF4d2963),
@@ -123,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(width: 8),
                           TextButton(
                             onPressed: () {
-                              navigateToProduct(context);
+                              placeholderCallbackForButtons();
                             },
                             style: TextButton.styleFrom(
                               foregroundColor: const Color(0xFF4d2963),
@@ -332,17 +332,20 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               'assets/images/EssentialHoodie.png',
                         ),
+
+
+
                         ProductCard(
-                          title: 'SIGNATURE CDs',
-                          price: 'Was £2.00, Now £1.50',
+                          title: 'Signature CDs',
+                          price: '£2.00',
                           imageUrl:
                               'assets/images/CDs.png',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 4',
-                          price: '£25.00',
+                          title: 'Signature Water Bottle',
+                          price: '£5.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/SignatureWB.png',
                         ),
                       ],
                     ),
