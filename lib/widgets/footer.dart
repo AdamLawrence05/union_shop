@@ -9,18 +9,18 @@ class Footer extends StatelessWidget {
       width: double.infinity,
       color: Colors.grey[50],
       padding: const EdgeInsets.all(24),
-      child: Column(
+      child: const Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _FooterHeading('(Term Time)'),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           _FooterText('Monday - Friday 10am - 4pm'),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _FooterHeading('(Outside of Term Time / Consolidation Weeks)'),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           _FooterText('Monday - Friday 10am - 3pm'),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _FooterText('Purchase online 24/7'),
         ],
       ),
