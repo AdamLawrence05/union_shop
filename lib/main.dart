@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(width: 8),
                           TextButton(
                             onPressed: () {
-                              navigateToProduct(context);
+                              placeholderCallbackForButtons();
                             },
                             style: TextButton.styleFrom(
                               foregroundColor: const Color(0xFF4d2963),
@@ -203,7 +203,7 @@ class HomeScreen extends StatelessWidget {
                                     Icons.menu,
                                     size: 18,
                                     color: Colors.grey,
-                                  ), // menu icon
+                                  ), // menu
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
                                     minWidth: 32,
