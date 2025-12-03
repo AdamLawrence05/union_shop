@@ -164,7 +164,7 @@ class HomeScreen extends StatelessWidget {
                                     Icons.search,
                                     size: 18,
                                     color: Colors.grey,
-                                  ),
+                                  ), // searching icon
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
                                     minWidth: 32,
@@ -177,7 +177,7 @@ class HomeScreen extends StatelessWidget {
                                     Icons.person_outline,
                                     size: 18,
                                     color: Colors.grey,
-                                  ),
+                                  ), // sign in icon
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
                                     minWidth: 32,
@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                                     Icons.shopping_bag_outlined,
                                     size: 18,
                                     color: Colors.grey,
-                                  ),
+                                  ), //cart icon
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
                                     minWidth: 32,
@@ -203,7 +203,7 @@ class HomeScreen extends StatelessWidget {
                                     Icons.menu,
                                     size: 18,
                                     color: Colors.grey,
-                                  ),
+                                  ), // menu icon
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
                                     minWidth: 32,
