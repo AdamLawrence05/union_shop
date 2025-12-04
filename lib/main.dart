@@ -200,6 +200,46 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 48),
+                    const Text(
+                      'OUR RANGE',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 4 : 2,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
+                        ProductCard(
+                          title: 'Placeholder 1',
+                          price: '£0.00',
+                          imageUrl: 'assets/images/CDs.png',
+                        ),
+                        ProductCard(
+                          title: 'Placeholder 2',
+                          price: '£0.00',
+                          imageUrl: 'assets/images/CDs.png',
+                        ),
+                        ProductCard(
+                          title: 'Placeholder 3',
+                          price: '£0.00',
+                          imageUrl: 'assets/images/CDs.png',
+                        ),
+                        ProductCard(
+                          title: 'Placeholder 4',
+                          price: '£0.00',
+                          imageUrl: 'assets/images/CDs.png',
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
