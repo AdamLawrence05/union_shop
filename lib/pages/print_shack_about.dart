@@ -24,21 +24,45 @@ class PrintShackAboutPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/PrintShackLogo.png',
-                        height: 250,
-                        fit: BoxFit.cover,
-                      ),
-                      const SizedBox(width: 24),
-                      Image.asset(
-                        'assets/images/PersonalisedShirt.png',
-                        height: 250,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final isMobile = constraints.maxWidth < 600;
+                      
+                      if (isMobile) {
+                        return Column(
+                          children: [
+                            Image.asset(
+                              'assets/images/PrintShackLogo.png',
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                            const SizedBox(height: 16),
+                            Image.asset(
+                              'assets/images/PersonalisedShirt.png',
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                          ],
+                        );
+                      }
+                      
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/images/PrintShackLogo.png',
+                            height: 250,
+                            fit: BoxFit.cover,
+                          ),
+                          const SizedBox(width: 24),
+                          Image.asset(
+                            'assets/images/PersonalisedShirt.png',
+                            height: 250,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   const SizedBox(height: 48),
                   const Text(
