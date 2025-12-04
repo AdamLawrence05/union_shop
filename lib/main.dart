@@ -159,15 +159,11 @@ class HomeScreen extends StatelessWidget {
                         ProductCard(
                           title: 'Essential T-Shirt',
                           price: 'Was £10.00, Now £8.00',
-                          imageUrl:
-                              'assets/images/EssentialShirt.png',
-                        ),
+                          imageUrl: 'assets/images/EssentialShirt.png',                        ),
                         ProductCard(
                           title: 'Essential Hoodie',
                           price: 'Was £20.00, Now £15.99',
-                          imageUrl:
-                              'assets/images/EssentialHoodie.png',
-                        ),
+                          imageUrl: 'assets/images/EssentialHoodie.png',                        ),
                       ],
                     ),
                     const SizedBox(height: 48),
@@ -191,14 +187,12 @@ class HomeScreen extends StatelessWidget {
                         ProductCard(
                           title: 'Signature CDs',
                           price: 'Was £2.00, now £1.50',
-                          imageUrl:
-                              'assets/images/CDs.png',
+                          imageUrl: 'assets/images/CDs.png',
                         ),
                         ProductCard(
                           title: 'Signature Water Bottle',
                           price: '£5.00',
-                          imageUrl:
-                              'assets/images/SignatureWB.png',
+                          imageUrl: 'assets/images/SignatureWB.png',
                         ),
                       ],
                     ),
