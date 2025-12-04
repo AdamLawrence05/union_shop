@@ -12,6 +12,7 @@ class Navbar extends StatelessWidget {
   void _openMobileMenu(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (context) => Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
@@ -21,8 +22,23 @@ class Navbar extends StatelessWidget {
               Navigator.pop(context);
               navigateToHome(context);
             }),
-            _mobileNavItem(context, 'Shops', () => Navigator.pop(context)),
-            _mobileNavItem(context, 'The Print Shack', () => Navigator.pop(context)),
+            _mobileExpandableItem(
+              context,
+              'Shops',
+              [
+                {'label': 'Clothing', 'route': '/'},
+                {'label': 'Merchandise', 'route': '/'},
+                {'label': 'Signature & Essential', 'route': '/'},
+              ],
+            ),
+            _mobileExpandableItem(
+              context,
+              'The Print Shack',
+              [
+                {'label': 'About', 'route': '/print-shack-about'},
+                {'label': 'Personalisation', 'route': '/print-shack'},
+              ],
+            ),
             _mobileNavItem(context, 'SALE!', () => Navigator.pop(context)),
             _mobileNavItem(context, 'About us', () {
               Navigator.pop(context);
@@ -41,6 +57,30 @@ class Navbar extends StatelessWidget {
         style: const TextStyle(color: Color(0xFF4d2963)),
       ),
       onTap: onTap,
+    );
+  }
+
+  Widget _mobileExpandableItem(BuildContext context, String title, List<Map<String, String>> items) {
+    return ExpansionTile(
+      title: Text(
+        title,
+        style: const TextStyle(color: Color(0xFF4d2963)),
+      ),
+      iconColor: const Color(0xFF4d2963),
+      collapsedIconColor: const Color(0xFF4d2963),
+      children: items.map((item) {
+        return ListTile(
+          contentPadding: const EdgeInsets.only(left: 32),
+          title: Text(
+            item['label']!,
+            style: const TextStyle(color: Color(0xFF4d2963), fontSize: 14),
+          ),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, item['route']!);
+          },
+        );
+      }).toList(),
     );
   }
 
