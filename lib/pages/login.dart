@@ -43,7 +43,25 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              // Add more content below here (e.g., login form)
+              // Sign in with Shop button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF5C6AC4),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  child: const Text(
+                    'Sign in with Shop',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
