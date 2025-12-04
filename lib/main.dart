@@ -235,19 +235,19 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 24,
                       children: const [
                         CollectionCard(
-                          title: 'Placeholder 1',
+                          title: 'Clothing',
                           imageUrl: 'assets/images/CDs.png',
                         ),
                         CollectionCard(
-                          title: 'Placeholder 2',
+                          title: 'Merchandise',
                           imageUrl: 'assets/images/EssentialShirt.png',
                         ),
                         CollectionCard(
-                          title: 'Placeholder 3',
+                          title: 'Graduation',
                           imageUrl: 'assets/images/EssentialHoodie.png',
                         ),
                         CollectionCard(
-                          title: 'Placeholder 4',
+                          title: 'SALE!',
                           imageUrl: 'assets/images/SignatureWB.png',
                         ),
                       ],
