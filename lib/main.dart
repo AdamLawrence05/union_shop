@@ -166,9 +166,26 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               'assets/images/EssentialHoodie.png',
                         ),
-
-
-
+                      ],
+                    ),
+                    const SizedBox(height: 48),
+                    const Text(
+                      'SIGNATURE COLLECTION',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
                         ProductCard(
                           title: 'Signature CDs',
                           price: '£2.00',
