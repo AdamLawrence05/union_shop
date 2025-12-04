@@ -14,14 +14,33 @@ class PrintShackAboutPage extends StatelessWidget {
             const Navbar(),
             Container(
               padding: const EdgeInsets.all(24),
-              child: const Center(
-                child: Text(
-                  'About The Print Shack',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                children: [
+                  const Text(
+                    'About The Print Shack',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 32),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/PrintShackLogo.png',
+                        height: 250,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 24),
+                      Image.asset(
+                        'assets/images/PersonalisedShirt.png',
+                        height: 250,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
 
