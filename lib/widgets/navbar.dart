@@ -150,7 +150,7 @@ class Navbar extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             _iconButton(Icons.search, placeholderCallbackForButtons, isMobile),
-                            _iconButton(Icons.person_outline, placeholderCallbackForButtons, isMobile),
+                            _iconButton(Icons.person_outline, () => Navigator.pushNamed(context, '/login'), isMobile),
                             _iconButton(Icons.shopping_bag_outlined, placeholderCallbackForButtons, isMobile),
                             if (isMobile)
                               IconButton(
