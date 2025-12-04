@@ -3,6 +3,7 @@ import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
 import 'package:union_shop/widgets/navbar.dart';
 import 'package:union_shop/widgets/footer.dart';
+import 'package:union_shop/widgets/collection_card.dart';
 
 
 void main() {
@@ -231,27 +232,23 @@ class HomeScreen extends StatelessWidget {
                       crossAxisCount:
                           MediaQuery.of(context).size.width > 600 ? 4 : 2,
                       crossAxisSpacing: 24,
-                      mainAxisSpacing: 48,
+                      mainAxisSpacing: 24,
                       children: const [
-                        ProductCard(
+                        CollectionCard(
                           title: 'Placeholder 1',
-                          price: '£0.00',
                           imageUrl: 'assets/images/CDs.png',
                         ),
-                        ProductCard(
+                        CollectionCard(
                           title: 'Placeholder 2',
-                          price: '£0.00',
-                          imageUrl: 'assets/images/CDs.png',
+                          imageUrl: 'assets/images/EssentialShirt.png',
                         ),
-                        ProductCard(
+                        CollectionCard(
                           title: 'Placeholder 3',
-                          price: '£0.00',
-                          imageUrl: 'assets/images/CDs.png',
+                          imageUrl: 'assets/images/EssentialHoodie.png',
                         ),
-                        ProductCard(
+                        CollectionCard(
                           title: 'Placeholder 4',
-                          price: '£0.00',
-                          imageUrl: 'assets/images/CDs.png',
+                          imageUrl: 'assets/images/SignatureWB.png',
                         ),
                       ],
                     ),
