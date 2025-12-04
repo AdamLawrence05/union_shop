@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                       children: const [
                         ProductCard(
                           title: 'Signature CDs',
-                          price: '£2.00',
+                          price: 'Was £2.00, now £1.50',
                           imageUrl:
                               'assets/images/CDs.png',
                         ),
@@ -237,11 +237,11 @@ class HomeScreen extends StatelessWidget {
                       children: const [
                         CollectionCard(
                           title: 'Clothing',
-                          imageUrl: 'assets/images/CDs.png',
+                          imageUrl: 'assets/images/EssentialShirt.png',
                         ),
                         CollectionCard(
                           title: 'Merchandise',
-                          imageUrl: 'assets/images/EssentialShirt.png',
+                          imageUrl: 'assets/images/SignatureWB.png',
                         ),
                         CollectionCard(
                           title: 'Graduation',
@@ -249,7 +249,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         CollectionCard(
                           title: 'SALE!',
-                          imageUrl: 'assets/images/SignatureWB.png',
+                          imageUrl: 'assets/images/CDs.png',
                         ),
                       ],
                     ),
