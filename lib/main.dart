@@ -201,6 +201,21 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 48),
+                    ElevatedButton(
+                      onPressed: placeholderCallbackForButtons,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                      ),
+                      child: const Text(
+                        'VIEW ALL',
+                        style: TextStyle(fontSize: 14, letterSpacing: 1),
+                      ),
+                    ),
+                    const SizedBox(height: 48),
                     const Text(
                       'OUR RANGE',
                       style: TextStyle(
