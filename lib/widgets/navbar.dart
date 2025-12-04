@@ -95,7 +95,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _navButton(context, 'Home', () => navigateToHome(context)),
                         const SizedBox(width: 8),
-                        _navButton(context, 'Shops', placeholderCallbackForButtons),
+                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise', 'Signature & Essential']),
                         const SizedBox(width: 8),
                         _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
@@ -159,10 +159,19 @@ class Navbar extends StatelessWidget {
       onSelected: (value) {
         switch (value) {
           case 'about':
-            navigateToHome(context); // Change to actual route later e.g. Navigator.pushNamed(context, '/print-shack/about');
+            navigateToHome(context);
             break;
           case 'personalisation':
-            navigateToHome(context); // Change to actual route later e.g. Navigator.pushNamed(context, '/print-shack/personalisation');
+            navigateToHome(context);
+            break;
+          case 'clothing':
+            navigateToHome(context);
+            break;
+          case 'merchandise':
+            navigateToHome(context);
+            break;
+          case 'signature & essential':
+            navigateToHome(context);
             break;
         }
       },
