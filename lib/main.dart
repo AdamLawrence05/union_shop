@@ -40,8 +40,40 @@ class UnionShopApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Auto-cycle every 5 seconds
+    Future.delayed(const Duration(seconds: 5), _autoScroll);
+  }
+
+  void _autoScroll() {
+    if (!mounted) return;
+    final nextPage = (_currentPage + 1) % 2;
+    _pageController.animateToPage(
+      nextPage,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+    Future.delayed(const Duration(seconds: 5), _autoScroll);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -51,8 +83,79 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(context, '/product');
   }
 
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
+  void placeholderCallbackForButtons() {}
+
+  Widget _buildHeroSlide({
+    required String image,
+    required String title,
+    required String subtitle,
+    required String buttonText,
+    required VoidCallback onPressed,
+  }) {
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.7),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 24,
+          right: 24,
+          top: 80,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  height: 1.2,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                subtitle,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  height: 1.5,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF4d2963),
+                  foregroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                ),
+                child: Text(
+                  buttonText,
+                  style: const TextStyle(fontSize: 14, letterSpacing: 1),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   @override
@@ -64,73 +167,58 @@ class HomeScreen extends StatelessWidget {
             // Header
             const Navbar(),
 
-            // Hero Section
+            // Hero Carousel Section
             SizedBox(
               height: 400,
               width: double.infinity,
               child: Stack(
                 children: [
-                  // Background image
-                  Positioned.fill(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/EssentialHoodie.png',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
+                  PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
+                    children: [
+                      // Slide 1
+                      _buildHeroSlide(
+                        image: 'assets/images/EssentialHoodie.png',
+                        title: 'Essential Range - Over 20% OFF!',
+                        subtitle: 'Over 20% off our essential range. Come and grab yours while stock lasts!',
+                        buttonText: 'BROWSE PRODUCTS',
+                        onPressed: placeholderCallbackForButtons,
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.7),
-                        ),
+                      // Slide 2
+                      _buildHeroSlide(
+                        image: 'assets/images/PersonalisedShirt.png',
+                        title: 'The Print Shack',
+                        subtitle: 'Personalise your clothing with custom prints and embroidery!',
+                        buttonText: 'LEARN MORE',
+                        onPressed: () => Navigator.pushNamed(context, '/print-shack-about'),
                       ),
-                    ),
+                    ],
                   ),
-                  // Content overlay
+                  // Page indicators
                   Positioned(
-                    left: 24,
-                    right: 24,
-                    top: 80,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Essential Range - Over 20% OFF!',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            height: 1.2,
+                    bottom: 16,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(2, (index) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: 12,
+                          height: 12,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: _currentPage == index
+                                ? Colors.white
+                                : Colors.white.withOpacity(0.5),
                           ),
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          "Over 20% off our essential range. Come and grab yours while stock lasts!",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            height: 1.5,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 32),
-                        ElevatedButton(
-                          onPressed: placeholderCallbackForButtons,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF4d2963),
-                            foregroundColor: Colors.white,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: const Text(
-                            'BROWSE PRODUCTS',
-                            style: TextStyle(fontSize: 14, letterSpacing: 1),
-                          ),
-                        ),
-                      ],
+                        );
+                      }),
                     ),
                   ),
                 ],
