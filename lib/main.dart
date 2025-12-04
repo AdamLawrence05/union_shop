@@ -5,6 +5,8 @@ import 'package:union_shop/widgets/navbar.dart';
 import 'package:union_shop/widgets/footer.dart';
 import 'package:union_shop/widgets/collection_card.dart';
 import 'package:union_shop/widgets/product_card.dart';
+import 'package:union_shop/pages/print_shack.dart';
+import 'package:union_shop/pages/print_shack_about.dart';
 
 
 void main() {
@@ -29,7 +31,10 @@ class UnionShopApp extends StatelessWidget {
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
         '/product': (context) => const ProductPage(),
-        '/about': (context) => const AboutUsPage(), // new route
+        '/about': (context) => const AboutUsPage(),
+        '/print-shack': (context) => const PrintShackPage(),
+        '/print-shack-about': (context) => const PrintShackAboutPage(),
+        
       },
     );
   }

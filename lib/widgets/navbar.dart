@@ -159,10 +159,10 @@ class Navbar extends StatelessWidget {
       onSelected: (value) {
         switch (value) {
           case 'about':
-            navigateToHome(context);
+            Navigator.pushNamed(context, '/print-shack-about');
             break;
           case 'personalisation':
-            navigateToHome(context);
+            Navigator.pushNamed(context, '/print-shack');
             break;
           case 'clothing':
             navigateToHome(context);
