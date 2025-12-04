@@ -97,7 +97,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _navButton(context, 'Shops', placeholderCallbackForButtons),
                         const SizedBox(width: 8),
-                        _navButton(context, 'The Print Shack', placeholderCallbackForButtons),
+                        _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
                         _navButton(context, 'SALE!', placeholderCallbackForButtons),
                         const SizedBox(width: 8),
@@ -151,6 +151,32 @@ class Navbar extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       constraints: BoxConstraints(minWidth: isMobile ? 40 : 32, minHeight: isMobile ? 40 : 32),
       onPressed: onPressed,
+    );
+  }
+
+  Widget _dropdownButton(BuildContext context, String label, List<String> items) {
+    return PopupMenuButton<String>(
+      onSelected: (value) {
+        switch (value) {
+          case 'about':
+            navigateToHome(context); // Change to actual route later e.g. Navigator.pushNamed(context, '/print-shack/about');
+            break;
+          case 'personalisation':
+            navigateToHome(context); // Change to actual route later e.g. Navigator.pushNamed(context, '/print-shack/personalisation');
+            break;
+        }
+      },
+      offset: const Offset(0, 40),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(label, style: const TextStyle(color: Color(0xFF4d2963))),
+          const Icon(Icons.arrow_drop_down, color: Color(0xFF4d2963), size: 20),
+        ],
+      ),
+      itemBuilder: (context) => items
+          .map((item) => PopupMenuItem(value: item.toLowerCase(), child: Text(item)))
+          .toList(),
     );
   }
 }
