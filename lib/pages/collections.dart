@@ -47,6 +47,10 @@ class CollectionsPage extends StatelessWidget {
                         title: 'SALE!',
                         imageUrl: 'assets/images/CDs.png',
                       ),
+                      CollectionCard(
+                        title: 'Signature & Essential',
+                        imageUrl: 'assets/images/SignatureMug.png',
+                      ),
                     ],
                   ),
                 ],
