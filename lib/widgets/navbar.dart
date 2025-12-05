@@ -138,7 +138,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _navButton(context, 'Home', () => navigateToHome(context)),
                         const SizedBox(width: 8),
-                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise', 'Signatures', 'Essentials']),
+                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise', 'Signature & Essential']),
                         const SizedBox(width: 8),
                         _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
@@ -213,10 +213,7 @@ class Navbar extends StatelessWidget {
           case 'merchandise':
             navigateToHome(context);
             break;
-          case 'signature':
-            navigateToHome(context);
-            break;
-          case 'essentials':
+          case 'signature & essential':
             navigateToHome(context);
             break;
         }
