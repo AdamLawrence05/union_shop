@@ -48,8 +48,8 @@ class CollectionsPage extends StatelessWidget {
                         imageUrl: 'assets/images/CDs.png',
                       ),
                       CollectionCard(
-                        title: 'Signature & Essential',
-                        imageUrl: 'assets/images/SignatureMug.png',
+                        title: 'Essentials',
+                        imageUrl: 'assets/images/EssentialHoodie.png',
                       ),
                     ],
                   ),
