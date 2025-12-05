@@ -204,7 +204,6 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                 ],
               ),
             ),
-
             const Footer(),
           ],
         ),
