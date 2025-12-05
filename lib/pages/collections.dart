@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/navbar.dart';
 import 'package:union_shop/widgets/footer.dart';
+import 'package:union_shop/widgets/collection_card.dart';
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -16,14 +17,43 @@ class CollectionsPage extends StatelessWidget {
             // Page content goes here
             Container(
               padding: const EdgeInsets.all(24),
-              child: const Center(
-                child: Text(
-                  'Collections',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                children: [
+                  const Text(
+                    'Collections',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 48),
+                  GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount:
+                        MediaQuery.of(context).size.width > 600 ? 4 : 2,
+                    crossAxisSpacing: 24,
+                    mainAxisSpacing: 24,
+                    children: const [
+                      CollectionCard(
+                        title: 'Clothing',
+                        imageUrl: 'assets/images/EssentialShirt.png',
+                      ),
+                      CollectionCard(
+                        title: 'Merchandise',
+                        imageUrl: 'assets/images/SignatureWB.png',
+                      ),
+                      CollectionCard(
+                        title: 'Graduation',
+                        imageUrl: 'assets/images/EssentialHoodie.png',
+                      ),
+                      CollectionCard(
+                        title: 'SALE!',
+                        imageUrl: 'assets/images/CDs.png',
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
 
