@@ -14,7 +14,11 @@ class CollectionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        Navigator.pushNamed(
+          context,
+          '/collection',
+          arguments: {'collection': title},
+        );
       },
       child: Stack(
         fit: StackFit.expand,
