@@ -94,6 +94,28 @@ class ProductPage extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
+                  // Add to Cart button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                      child: const Text(
+                        'ADD TO CART',
+                        style: TextStyle(fontSize: 16, letterSpacing: 1),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+
                   // Product description
                   const Text(
                     'Description',
