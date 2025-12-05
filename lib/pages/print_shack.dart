@@ -14,6 +14,25 @@ class _PrintShackPageState extends State<PrintShackPage> {
   String _selectedOption = 'One line of text';
   final TextEditingController _customTextController = TextEditingController();
 
+  String _getPrice() {
+    switch (_selectedOption) {
+      case 'One line of text':
+        return '£3.00';
+      case 'Two lines of text':
+        return '£5.00';
+      case 'Three lines of text':
+        return '£7.50';
+      case 'Four lines of text':
+        return '£10.00';
+      case 'Small logo (chest)':
+        return '£3.50';
+      case 'Large logo (back)':
+        return '£6.00';
+      default:
+        return '£0.00';
+    }
+  }
+
   @override
   void dispose() {
     _customTextController.dispose();
@@ -50,6 +69,16 @@ class _PrintShackPageState extends State<PrintShackPage> {
                     ),
                   ),
                   const SizedBox(height: 24),
+                  // Price display
+                  Text(
+                    _getPrice(),
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF4d2963),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   // Print option selector
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
