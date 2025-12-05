@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withValues(alpha: 0.7),
               ),
             ),
           ),
@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             shape: BoxShape.circle,
                             color: _currentPage == index
                                 ? Colors.white
-                                : Colors.white.withOpacity(0.5),
+                                : Colors.white.withValues(alpha: 0.5),
                           ),
                         );
                       }),
