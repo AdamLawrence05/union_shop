@@ -106,7 +106,7 @@ const List<Product> allProducts = [
     title: 'Beanie Hat',
     price: 'Was £8.00, Now £5.99',
     priceValue: 5.99,
-    imageUrl: 'assets/images/BeanieHat.png',
+    imageUrl: 'assets/images/Beanie.png',
     description: 'Keep warm with our cosy beanie hat.',
     category: 'clothing',
     onSale: true,
