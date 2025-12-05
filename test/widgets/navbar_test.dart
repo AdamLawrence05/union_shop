@@ -6,8 +6,8 @@ void main() {
   group('Navbar Widget Tests', () {
     Widget createNavbar() {
       return MaterialApp(
-        home: Scaffold(
-          body: const Navbar(),
+        home: const Scaffold(
+          body: Navbar(),
         ),
         routes: {
           '/about': (context) => const Scaffold(body: Text('About')),
