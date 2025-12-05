@@ -306,21 +306,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     const SizedBox(height: 48),
-                    ElevatedButton(
-                      onPressed: placeholderCallbackForButtons,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF4d2963),
-                        foregroundColor: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                      ),
-                      child: const Text(
-                        'VIEW ALL',
-                        style: TextStyle(fontSize: 14, letterSpacing: 1),
-                      ),
-                    ),
-                    const SizedBox(height: 48),
                     const Text(
                       'OUR RANGE',
                       style: TextStyle(
@@ -352,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         CollectionCard(
                           title: 'Signature & Essential',
-                          imageUrl: 'assets/images/SignatureMug.png',
+                          imageUrl: 'assets/images/UniversityMug.png',
                         ), 
                       ],
                     ),
