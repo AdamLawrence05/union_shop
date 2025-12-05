@@ -16,14 +16,25 @@ class PrintShackPage extends StatelessWidget {
             // Page content goes here
             Container(
               padding: const EdgeInsets.all(24),
-              child: const Center(
-                child: Text(
-                  'Print Shack',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                children: [
+                  const Text(
+                    'Print Shack',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 24),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/PersonalisedShirt.png',
+                      width: 400,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
               ),
             ),
 
