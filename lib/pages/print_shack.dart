@@ -12,6 +12,13 @@ class PrintShackPage extends StatefulWidget {
 class _PrintShackPageState extends State<PrintShackPage> {
   int _quantity = 1;
   String _selectedOption = 'One line of text';
+  final TextEditingController _customTextController = TextEditingController();
+
+  @override
+  void dispose() {
+    _customTextController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +93,26 @@ class _PrintShackPageState extends State<PrintShackPage> {
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 16),
+                  // Custom text input
+                  SizedBox(
+                    width: 400,
+                    child: TextField(
+                      controller: _customTextController,
+                      maxLines: 2,
+                      decoration: InputDecoration(
+                        hintText: 'Enter your custom text here...',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4),
+                          borderSide: const BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4),
+                          borderSide: const BorderSide(color: Color(0xFF4d2963)),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   // Quantity selector
