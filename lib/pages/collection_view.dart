@@ -13,6 +13,7 @@ class CollectionViewPage extends StatefulWidget {
 
 class _CollectionViewPageState extends State<CollectionViewPage> {
   String _sortBy = 'Name (A-Z)';
+  String _categoryFilter = 'All';
   int _currentPage = 0;
   final int _itemsPerPage = 4;
 
@@ -24,6 +25,11 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
       results = results.where((p) => p.onSale).toList();
     } else if (collectionName.toLowerCase() != 'all') {
       results = results.where((p) => p.category.toLowerCase() == collectionName.toLowerCase()).toList();
+    }
+
+    // Filter by category dropdown
+    if (_categoryFilter != 'All') {
+      results = results.where((p) => p.category.toLowerCase() == _categoryFilter.toLowerCase()).toList();
     }
 
     // Sort
@@ -122,6 +128,39 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                                 if (value != null) {
                                   setState(() {
                                     _sortBy = value;
+                                    _currentPage = 0;
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      // Category Filter Dropdown
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text('Category: '),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: DropdownButton<String>(
+                              value: _categoryFilter,
+                              underline: const SizedBox(),
+                              items: ['All', 'Clothing', 'Merchandise'].map((option) {
+                                return DropdownMenuItem(
+                                  value: option,
+                                  child: Text(option),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _categoryFilter = value;
                                     _currentPage = 0;
                                   });
                                 }
