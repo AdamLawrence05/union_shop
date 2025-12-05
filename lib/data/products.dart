@@ -119,7 +119,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/Beanie.png',
     description: 'Keep warm with our cosy beanie hat.',
     category: 'clothing',
-    type: 'clothing',
+    type: 'merchandise',
     onSale: true,
   ),
   Product(
