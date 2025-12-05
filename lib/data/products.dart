@@ -96,7 +96,7 @@ const List<Product> allProducts = [
     title: 'Tote Bag',
     price: '£6.00',
     priceValue: 6.00,
-    imageUrl: 'assets/images/ToteBag.png',
+    imageUrl: 'assets/images/SignatureToteBag.png',
     description: 'Eco-friendly tote bag with university logo.',
     category: 'merchandise',
     onSale: false,
