@@ -13,7 +13,7 @@ class CollectionViewPage extends StatefulWidget {
 
 class _CollectionViewPageState extends State<CollectionViewPage> {
   String _sortBy = 'Name (A-Z)';
-  String _categoryFilter = 'All';
+  String _typeFilter = 'All';
   int _currentPage = 0;
   final int _itemsPerPage = 4;
 
@@ -27,9 +27,9 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
       results = results.where((p) => p.category.toLowerCase() == collectionName.toLowerCase()).toList();
     }
 
-    // Filter by category dropdown
-    if (_categoryFilter != 'All') {
-      results = results.where((p) => p.category.toLowerCase() == _categoryFilter.toLowerCase()).toList();
+    // Filter by type dropdown
+    if (_typeFilter != 'All') {
+      results = results.where((p) => p.type.toLowerCase() == _typeFilter.toLowerCase()).toList();
     }
 
     // Sort
@@ -137,11 +137,11 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                         ],
                       ),
 
-                      // Category Filter Dropdown
+                      // Type Filter Dropdown
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text('Category: '),
+                          const Text('Type: '),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
@@ -149,7 +149,7 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: DropdownButton<String>(
-                              value: _categoryFilter,
+                              value: _typeFilter,
                               underline: const SizedBox(),
                               items: ['All', 'Clothing', 'Merchandise'].map((option) {
                                 return DropdownMenuItem(
@@ -160,7 +160,7 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                               onChanged: (value) {
                                 if (value != null) {
                                   setState(() {
-                                    _categoryFilter = value;
+                                    _typeFilter = value;
                                     _currentPage = 0;
                                   });
                                 }
