@@ -28,6 +28,7 @@ class Navbar extends StatelessWidget {
               [
                 {'label': 'Clothing', 'collection': 'Clothing'},
                 {'label': 'Merchandise', 'collection': 'Merchandise'},
+                {'label': 'Essentials', 'collection': 'Essentials'},
               ],
             ),
             _mobileExpandableItem(
@@ -141,7 +142,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _navButton(context, 'Home', () => navigateToHome(context)),
                         const SizedBox(width: 8),
-                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise']),
+                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise', 'Essentials']),
                         const SizedBox(width: 8),
                         _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
@@ -215,6 +216,9 @@ class Navbar extends StatelessWidget {
             break;
           case 'merchandise':
             Navigator.pushNamed(context, '/collection', arguments: {'collection': 'Merchandise'});
+            break;
+          case 'essentials':
+            Navigator.pushNamed(context, '/collection', arguments: {'collection': 'Essentials'});
             break;
         }
       },
