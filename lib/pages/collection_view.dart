@@ -193,7 +193,7 @@ class _CollectionViewPageState extends State<CollectionViewPage> {
                           price: product.price,
                           imageUrl: product.imageUrl,
                           description: product.description,
-                          category: product.category,
+                          type: product.type, // changed from category
                         );
                       }).toList(),
                     ),
