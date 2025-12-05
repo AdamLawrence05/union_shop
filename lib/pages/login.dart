@@ -28,8 +28,7 @@ class LoginPage extends StatelessWidget {
               // Logo at the top
               GestureDetector(
                 onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false),
-                child: Image.network(
-                  'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                child: Image.asset('assets/images/logo.png',
                   height: 80,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
