@@ -11,6 +11,7 @@ class PrintShackPage extends StatefulWidget {
 
 class _PrintShackPageState extends State<PrintShackPage> {
   int _quantity = 1;
+  String _selectedOption = 'One line of text';
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,51 @@ class _PrintShackPageState extends State<PrintShackPage> {
                     ),
                   ),
                   const SizedBox(height: 24),
+                  // Print option selector
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Print Option:',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: DropdownButton<String>(
+                          value: _selectedOption,
+                          underline: const SizedBox(),
+                          items: [
+                            'One line of text',
+                            'Two lines of text',
+                            'Three lines of text',
+                            'Four lines of text',
+                            'Small logo (chest)',
+                            'Large logo (back)',
+                          ].map((option) {
+                            return DropdownMenuItem(
+                              value: option,
+                              child: Text(option),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            if (value != null) {
+                              setState(() => _selectedOption = value);
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   // Quantity selector
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
