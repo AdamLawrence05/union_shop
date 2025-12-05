@@ -39,7 +39,10 @@ class Navbar extends StatelessWidget {
                 {'label': 'Personalisation', 'route': '/print-shack'},
               ],
             ),
-            _mobileNavItem(context, 'SALE!', () => Navigator.pop(context)),
+            _mobileNavItem(context, 'SALE!', () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/collection', arguments: {'collection': 'SALE!'});
+            }),
             _mobileNavItem(context, 'About us', () {
               Navigator.pop(context);
               Navigator.pushNamed(context, '/about');
@@ -139,7 +142,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
-                        _navButton(context, 'SALE!', placeholderCallbackForButtons),
+                        _navButton(context, 'SALE!', () => Navigator.pushNamed(context, '/collection', arguments: {'collection': 'SALE!'})),
                         const SizedBox(width: 8),
                         _navButton(context, 'About us', () => Navigator.pushNamed(context, '/about')),
                       ],
