@@ -31,7 +31,7 @@ class CollectionsPage extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount:
-                        MediaQuery.of(context).size.width > 600 ? 4 : 2,
+                        MediaQuery.of(context).size.width > 600 ? 3 : 1,
                     crossAxisSpacing: 24,
                     mainAxisSpacing: 24,
                     children: const [
@@ -42,10 +42,6 @@ class CollectionsPage extends StatelessWidget {
                       CollectionCard(
                         title: 'Merchandise',
                         imageUrl: 'assets/images/SignatureWB.png',
-                      ),
-                      CollectionCard(
-                        title: 'Graduation',
-                        imageUrl: 'assets/images/EssentialHoodie.png',
                       ),
                       CollectionCard(
                         title: 'SALE!',
