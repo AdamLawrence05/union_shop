@@ -26,9 +26,8 @@ class Navbar extends StatelessWidget {
               context,
               'Shops',
               [
-                {'label': 'Clothing', 'route': '/'},
-                {'label': 'Merchandise', 'route': '/'},
-                {'label': 'Signature & Essential', 'route': '/'},
+                {'label': 'Clothing', 'collection': 'Clothing'},
+                {'label': 'Merchandise', 'collection': 'Merchandise'},
               ],
             ),
             _mobileExpandableItem(
@@ -80,7 +79,11 @@ class Navbar extends StatelessWidget {
           ),
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, item['route']!);
+            if (item.containsKey('collection')) {
+              Navigator.pushNamed(context, '/collection', arguments: {'collection': item['collection']});
+            } else if (item.containsKey('route')) {
+              Navigator.pushNamed(context, item['route']!);
+            }
           },
         );
       }).toList(),
@@ -138,7 +141,7 @@ class Navbar extends StatelessWidget {
                         const SizedBox(width: 8),
                         _navButton(context, 'Home', () => navigateToHome(context)),
                         const SizedBox(width: 8),
-                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise', 'Signature & Essential']),
+                        _dropdownButton(context, 'Shops', ['Clothing', 'Merchandise']),
                         const SizedBox(width: 8),
                         _dropdownButton(context, 'The Print Shack', ['About', 'Personalisation']),
                         const SizedBox(width: 8),
@@ -208,13 +211,10 @@ class Navbar extends StatelessWidget {
             Navigator.pushNamed(context, '/print-shack');
             break;
           case 'clothing':
-            navigateToHome(context);
+            Navigator.pushNamed(context, '/collection', arguments: {'collection': 'Clothing'});
             break;
           case 'merchandise':
-            navigateToHome(context);
-            break;
-          case 'signature & essential':
-            navigateToHome(context);
+            Navigator.pushNamed(context, '/collection', arguments: {'collection': 'Merchandise'});
             break;
         }
       },
