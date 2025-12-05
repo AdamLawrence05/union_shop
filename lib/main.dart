@@ -193,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: 'Essential Range - Over 20% OFF!',
                         subtitle: 'Over 20% off our essential range. Come and grab yours while stock lasts!',
                         buttonText: 'BROWSE PRODUCTS',
-                        onPressed: placeholderCallbackForButtons,
+                        onPressed: () => Navigator.pushNamed(context, '/collection', arguments: {'collection': 'Essentials'}),
                       ),
                       // Slide 2
                       _buildHeroSlide(
