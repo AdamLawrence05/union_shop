@@ -6,6 +6,7 @@ class Product {
   final String imageUrl;
   final String description;
   final String category;
+  final String type; // clothing or merchandise
   final bool onSale;
 
   const Product({
@@ -16,6 +17,7 @@ class Product {
     required this.imageUrl,
     required this.description,
     required this.category,
+    required this.type,
     this.onSale = false,
   });
 }
@@ -29,6 +31,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/EssentialShirt.png',
     description: 'A comfortable essential t-shirt perfect for everyday wear. Made from 100% cotton.',
     category: 'clothing',
+    type: 'clothing',
     onSale: true,
   ),
   Product(
@@ -39,6 +42,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/EssentialHoodie.png',
     description: 'Stay warm with our essential hoodie. Features a front pocket and adjustable drawstring hood.',
     category: 'clothing',
+    type: 'clothing',
     onSale: true,
   ),
   Product(
@@ -49,6 +53,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/CDs.png',
     description: 'Collectible signature CDs featuring exclusive content.',
     category: 'merchandise',
+    type: 'merchandise',
     onSale: true,
   ),
   Product(
@@ -59,6 +64,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/SignatureWB.png',
     description: 'Stay hydrated with our signature water bottle. BPA-free and holds 500ml.',
     category: 'merchandise',
+    type: 'merchandise',
     onSale: false,
   ),
   Product(
@@ -69,6 +75,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/EssentialShirt.png',
     description: 'A classic polo shirt for a smart casual look.',
     category: 'clothing',
+    type: 'clothing',
     onSale: false,
   ),
   Product(
@@ -79,6 +86,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/EssentialHoodie.png',
     description: 'Show your university pride with this varsity jacket.',
     category: 'clothing',
+    type: 'clothing',
     onSale: true,
   ),
   Product(
@@ -89,6 +97,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/UniversityMug.png',
     description: 'Start your day right with our official university mug.',
     category: 'merchandise',
+    type: 'merchandise',
     onSale: false,
   ),
   Product(
@@ -99,6 +108,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/SignatureToteBag.png',
     description: 'Eco-friendly tote bag with university logo.',
     category: 'merchandise',
+    type: 'merchandise',
     onSale: false,
   ),
   Product(
@@ -109,6 +119,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/Beanie.png',
     description: 'Keep warm with our cosy beanie hat.',
     category: 'clothing',
+    type: 'clothing',
     onSale: true,
   ),
   Product(
@@ -119,6 +130,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/NotebookSet.png',
     description: 'Set of 3 notebooks with university branding.',
     category: 'merchandise',
+    type: 'merchandise',
     onSale: false,
   ),
   Product(
@@ -129,6 +141,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/CDs.png',
     description: 'Keep your ID handy with this university lanyard.',
     category: 'essentials',
+    type: 'merchandise',
     onSale: true,
   ),
   Product(
@@ -139,6 +152,7 @@ const List<Product> allProducts = [
     imageUrl: 'assets/images/EssentialHoodie.png',
     description: 'Stay warm with this limited edition essential hoodie.',
     category: 'essentials',
+    type: 'clothing',
     onSale: true,
   ),
 ];
