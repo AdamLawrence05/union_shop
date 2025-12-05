@@ -336,7 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           imageUrl: 'assets/images/CDs.png',
                         ),
                         CollectionCard(
-                          title: 'Signature & Essential',
+                          title: 'Essentials',
                           imageUrl: 'assets/images/UniversityMug.png',
                         ), 
                       ],
