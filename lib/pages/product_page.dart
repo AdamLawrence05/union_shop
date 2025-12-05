@@ -11,6 +11,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   int _quantity = 1;
+  String _selectedSize = 'M';
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class _ProductPageState extends State<ProductPage> {
     final String price = args?['price'] ?? '£0.00';
     final String imageUrl = args?['imageUrl'] ?? '';
     final String description = args?['description'] ?? 'No description available.';
+    final String category = args?['category'] ?? '';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -100,6 +102,46 @@ class _ProductPageState extends State<ProductPage> {
                   ),
 
                   const SizedBox(height: 24),
+
+                  // Size selector (only for clothing)
+                  if (category == 'clothing') ...[
+                    Row(
+                      children: [
+                        const Text(
+                          'Size:',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey[300]!),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: DropdownButton<String>(
+                            value: _selectedSize,
+                            underline: const SizedBox(),
+                            items: ['S', 'M', 'L', 'XL'].map((size) {
+                              return DropdownMenuItem(
+                                value: size,
+                                child: Text(size),
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              if (value != null) {
+                                setState(() => _selectedSize = value);
+                              }
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                  ],
 
                   // Quantity selector
                   Row(
