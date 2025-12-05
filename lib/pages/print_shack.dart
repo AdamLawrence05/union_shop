@@ -92,6 +92,26 @@ class _PrintShackPageState extends State<PrintShackPage> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 24),
+                  // Add to Cart button
+                  SizedBox(
+                    width: 400,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                      child: const Text(
+                        'ADD TO CART',
+                        style: TextStyle(fontSize: 16, letterSpacing: 1),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
