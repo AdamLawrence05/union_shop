@@ -122,8 +122,8 @@ class Navbar extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () => navigateToHome(context),
-                        child: Image.network(
-                          'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                        child: Image.asset(
+                          'assets/images/logo.png',
                           height: isMobile ? 32 : 18,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
