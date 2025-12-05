@@ -22,7 +22,7 @@ class _ProductPageState extends State<ProductPage> {
     final String price = args?['price'] ?? '£0.00';
     final String imageUrl = args?['imageUrl'] ?? '';
     final String description = args?['description'] ?? 'No description available.';
-    final String category = args?['category'] ?? '';
+    final String type = args?['type'] ?? '';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -104,7 +104,7 @@ class _ProductPageState extends State<ProductPage> {
                   const SizedBox(height: 24),
 
                   // Size selector (only for clothing)
-                  if (category == 'clothing') ...[
+                  if (type == 'clothing') ...[
                     Row(
                       children: [
                         const Text(

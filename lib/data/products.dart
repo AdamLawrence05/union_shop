@@ -142,7 +142,7 @@ const List<Product> allProducts = [
     description: 'Keep your ID handy with this university lanyard.',
     category: 'essentials',
     type: 'merchandise',
-    onSale: true,
+    onSale: false,
   ),
   Product(
     id: '12',

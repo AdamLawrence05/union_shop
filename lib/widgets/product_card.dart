@@ -28,7 +28,7 @@ class ProductCard extends StatelessWidget {
             'price': price,
             'imageUrl': imageUrl,
             'description': description,
-            'type': type, // Update navigation arguments to pass type instead of category
+            'type': type,
           },
         );
       },
